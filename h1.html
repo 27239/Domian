@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Domain Search</title>
+</head>
+<body>
+  <h1>Domain Availability Checker</h1>
+  <input id="domainInput" type="text" placeholder="Enter domain (e.g. example.com)" />
+  <button onclick="checkDomain()">Search</button>
+
+  <p id="result"></p>
+
+  <script>
+    async function checkDomain() {
+      const domain = document.getElementById('domainInput').value.trim();
+      if (!domain) {
+        alert('Please enter a domain name');
+        return;
+      }
+
+      // For demo, let's pretend we call an API here
+      // Replace this with your actual API call
+      const apiURL = `https://api.example.com/check?domain=${encodeURIComponent(domain)}`;
+
+      document.getElementById('result').textContent = 'Checking...';
+
+      try {
+        // Fake delay & result for demo
+        await new Promise(res => setTimeout(res, 1000));
+
+        // This is a mock result — you replace with real API response
+        const available = Math.random() > 0.5;
+
+        if (available) {
+          document.getElementById('result').textContent = `${domain} is available! 🎉`;
+        } else {
+          document.getElementById('result').textContent = `${domain} is already taken. 😞`;
+        }
+      } catch (error) {
+        document.getElementById('result').textContent = 'Error checking domain. Please try again later.';
+      }
+    }
+  </script>
+</body>
+</html>
