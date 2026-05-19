@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'master',
-                    url: https://github.com/27239/Domian.git
+                    url: 'https://github.com/27239/Domian.git'
             }
         }
 
